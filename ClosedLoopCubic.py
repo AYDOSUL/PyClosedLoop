@@ -1,8 +1,8 @@
 import random as r
-a = r.randint(0,9) #Randomly assigning the coefficients
-b = r.randint(0,9)
-c = r.randint(0,9)
-d = r.randint(0,9)
+a = r.randint(-9,9) #Randomly assigning the coefficients
+b = r.randint(-9,9)
+c = r.randint(-9,9)
+d = r.randint(-9,9)
 
 def func(input):
     return d + c*(input) + b*(input)*(input) + a*(input)*(input)*(input) #Creating the function
