@@ -1,12 +1,20 @@
-a = int(input('Coefficient of cubic equation(a): ')) #Asking user for the coefficients of the cubic equation
-b = int(input('Coefficient of cubic equation(b): '))
-c = int(input('Coefficient of cubic equation(c): '))
-d = int(input('Coefficient of cubic equation(d): '))
+import random as r
+a = r.randint(0,9) #Randomly assigning the coefficients
+b = r.randint(0,9)
+c = r.randint(0,9)
+d = r.randint(0,9)
 
 def func(input):
     return d + c*(input) + b*(input)*(input) + a*(input)*(input)*(input) #Creating the function
-
+print('Coefficients of the cubic equation')
+print(a)
+print(b)
+print(c)
+print(d)
 setpoint = int(input('Setpoint for closed loop: ')) #Asking user for setpoint
+while setpoint == 1: #Avoids div by zero errors
+    print('setpoint cannot be 1')
+    setpoint = int(input('Setpoint for closed loop: ')) #Asking user for setpoint again
 cycle = int(input('Number of cycles the closed loop will optimize: ')) #Asking user for number of cycles the algorithm will run
 cval = 0 #Declaring initial correction value
 inval = 0 #Declaring initial input value
