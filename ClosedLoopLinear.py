@@ -33,4 +33,3 @@ while i < cycle :
         
 print(func(inval)) #Printing final output of function
 print(inval) #Printing final input value
-
