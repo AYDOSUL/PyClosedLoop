@@ -18,6 +18,7 @@ while setpoint == 1: #Avoids div by zero errors
 cycle = int(input('Number of cycles the closed loop will optimize: ')) #Asking user for number of cycles the algorithm will run
 cval = 0 #Declaring initial correction value
 inval = int(input('Custom starting input value: ')) #Declaring initial input value
+tol = float(input('Tolarance value for closed loop: '))
 tuneval = 0.0001 #Declaring the tuning value for the loop
 i = 1 #Setting i to 1, avoiding division by zero errors(on line 18)
 print("#    Input    Output")
@@ -27,11 +28,14 @@ while i < cycle+1 :
     if func(inval) < setpoint :
         inval = inval + tuneval*cval #Updating the input value as per calculation
         print(i," ",inval," ",func(inval)) #Printing the updated input value
+        i = i + 1
     elif func(inval) > setpoint:
         inval = inval - tuneval*cval #Updating the input value as per calculation
         print(i," ",inval," ",func(inval)) #Printing the updated input value
-    elif func(func(inval)) == setpoint :
+        i = i + 1
+    elif func(inval)-tol < setpoint and func(inval)+tol > setpoint:
         print(i," ",inval," ",func(inval)) #Printing the input value 
-    i = i + 1
+        i = cycle+1
+        
 print(func(inval)) #Printing final output of function
 print(inval) #Printing final input value
