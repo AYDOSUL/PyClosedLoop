@@ -15,7 +15,7 @@ print(c)
 print(d)
 kP = 0.01 #Constant of proportion
 kB = 0.00001 #DSA constant
-kS = 5 #DSA-Proportional handoff value
+kS = 20 #DSA-Proportional handoff value
 setpoint = int(input('Setpoint for closed loop: ')) #Asking user for setpoint
 while setpoint == 1: #Avoids div by zero errors
     print('setpoint cannot be 1')
