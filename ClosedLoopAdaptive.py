@@ -1,4 +1,4 @@
-#
+#DSAP Algorithm
 import random as r
 import math
 a = r.randint(0,9) #Randomly assigning the coefficients
