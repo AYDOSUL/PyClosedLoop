@@ -1,10 +1,10 @@
 #DSAP Algorithm
 import random as r
 import math
-a = r.randint(0,9) #Randomly assigning the coefficients
-b = r.randint(0,9)
-c = r.randint(0,9)
-d = r.randint(0,9)
+a = r.randint(-9,9) #Randomly assigning the coefficients
+b = r.randint(-9,9)
+c = r.randint(-9,9)
+d = r.randint(-9,9)
 
 def func(input):
     return d + c*(input) + b*(input)*(input) + a*(input)*(input)*(input) #Creating the function
@@ -15,7 +15,7 @@ print(c)
 print(d)
 kP = 0.01 #Constant of proportion
 kB = 0.00001 #DSA constant
-kS = 20 #DSA-Proportional handoff value
+kS = 5 #DSA-Proportional handoff value
 setpoint = int(input('Setpoint for closed loop: ')) #Asking user for setpoint
 while setpoint == 1: #Avoids div by zero errors
     print('setpoint cannot be 1')
@@ -42,7 +42,10 @@ while i < cycle + 1 :
             print(i," ",inval," ",func(inval)) #Printing the input value 
             i = cycle+1 
     else:
-        cval = kP
+        if func(inval) < func(inval + 1):
+            cval = kP
+        else:
+            cval = -kP
         if func(inval) < setpoint :
             inval = inval + cval #Updating the input value as per calculation
             print(i," ",inval," ",func(inval)) #Printing the updated input value
